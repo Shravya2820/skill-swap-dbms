@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillSwap Platform</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-logo">⟳</div>
+      <span class="brand-name">SkillSwap</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active" data-section="add-student">
+        <span class="nav-icon">👤</span> Add Student
+      </a>
+      <a href="#" class="nav-item" data-section="add-skill">
+        <span class="nav-icon">📚</span> Add Skill
+      </a>
+      <a href="#" class="nav-item" data-section="offer-skill">
+        <span class="nav-icon">🎁</span> Offer Skill
+      </a>
+      <a href="#" class="nav-item" data-section="request-skill">
+        <span class="nav-icon">🙋</span> Request Skill
+      </a>
+      <a href="#" class="nav-item" data-section="swap-request">
+        <span class="nav-icon">🔄</span> Swap Request
+      </a>
+      <a href="#" class="nav-item" data-section="view-all">
+        <span class="nav-icon">🔍</span> Search / View
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <p>🌿 Frontend by Shradda</p>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Header -->
+    <header class="top-header">
+      <div class="header-title">
+        <h1 id="section-title">Add Student</h1>
+        <p id="section-subtitle">Register a new student on the platform.</p>
+      </div>
+      <div class="header-badge">DBMS Project</div>
+    </header>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- ══════════════ SECTION 1: ADD STUDENT ══════════════ -->
+    <section id="add-student" class="section active">
+      <div class="card">
+        <div class="card-header pink">
+          <span>👤</span>
+          <h2>Student Registration</h2>
+        </div>
+        <form id="form-add-student" class="form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="s-name">Full Name</label>
+              <input type="text" id="s-name" placeholder="e.g. Shradda Sharma" required />
+            </div>
+            <div class="form-group">
+              <label for="s-email">Email Address</label>
+              <input type="email" id="s-email" placeholder="e.g. shradda@uni.edu" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="s-dept">Department</label>
+              <input type="text" id="s-dept" placeholder="e.g. Computer Science" required />
+            </div>
+            <div class="form-group">
+              <label for="s-year">Year of Study</label>
+              <select id="s-year" required>
+                <option value="">Select year...</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-pink">+ Register Student</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ══════════════ SECTION 2: ADD SKILL ══════════════ -->
+    <section id="add-skill" class="section">
+      <div class="card">
+        <div class="card-header lavender">
+          <span>📚</span>
+          <h2>Add New Skill</h2>
+        </div>
+        <form id="form-add-skill" class="form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sk-name">Skill Name</label>
+              <input type="text" id="sk-name" placeholder="e.g. Python Programming" required />
+            </div>
+            <div class="form-group">
+              <label for="sk-category">Category</label>
+              <select id="sk-category" required>
+                <option value="">Select category...</option>
+                <option value="Programming">Programming</option>
+                <option value="Design">Design</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Music">Music</option>
+                <option value="Language">Language</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-lavender">+ Add Skill</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ══════════════ SECTION 3: OFFER SKILL ══════════════ -->
+    <section id="offer-skill" class="section">
+      <div class="card">
+        <div class="card-header mint">
+          <span>🎁</span>
+          <h2>Offer a Skill</h2>
+        </div>
+        <form id="form-offer-skill" class="form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="os-student">Student ID</label>
+              <select id="os-student" required>
+                <option value="">Select student...</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="os-skill">Skill</label>
+              <select id="os-skill" required>
+                <option value="">Select skill...</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="os-level">Proficiency Level</label>
+              <select id="os-level" required>
+                <option value="">Select level...</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+                <option value="expert">Expert</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-mint">+ Offer Skill</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ══════════════ SECTION 4: REQUEST SKILL ══════════════ -->
+    <section id="request-skill" class="section">
+      <div class="card">
+        <div class="card-header yellow">
+          <span>🙋</span>
+          <h2>Request a Skill</h2>
+        </div>
+        <form id="form-request-skill" class="form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="rs-student">Student ID (Requester)</label>
+              <select id="rs-student" required>
+                <option value="">Select student...</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="rs-skill">Skill Wanted</label>
+              <select id="rs-skill" required>
+                <option value="">Select skill...</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-yellow">+ Request Skill</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ══════════════ SECTION 5: SWAP REQUEST ══════════════ -->
+    <section id="swap-request" class="section">
+      <div class="card">
+        <div class="card-header peach">
+          <span>🔄</span>
+          <h2>Create Swap Request</h2>
+        </div>
+        <form id="form-swap-request" class="form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sw-sender">Sender (Requester)</label>
+              <select id="sw-sender" required>
+                <option value="">Select student...</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sw-receiver">Receiver</label>
+              <select id="sw-receiver" required>
+                <option value="">Select student...</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="sw-offered">Skill Offered</label>
+              <select id="sw-offered" required>
+                <option value="">Select skill...</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sw-wanted">Skill Wanted</label>
+              <select id="sw-wanted" required>
+                <option value="">Select skill...</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-peach">+ Submit Swap Request</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ══════════════ SECTION 6: VIEW ALL ══════════════ -->
+    <section id="view-all" class="section">
+      <div class="view-tabs">
+        <button class="tab-btn active" data-tab="tab-students">👥 All Students</button>
+        <button class="tab-btn" data-tab="tab-skills">📚 All Skills</button>
+        <button class="tab-btn" data-tab="tab-swaps">🔄 Pending Swaps</button>
+      </div>
+
+      <!-- Students Tab -->
+      <div id="tab-students" class="tab-pane active">
+        <div class="tab-header">
+          <h3>Registered Students</h3>
+          <button class="btn-refresh" onclick="loadStudentsTable()">↻ Refresh</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th><th>Name</th><th>Email</th><th>Department</th><th>Skills</th>
+              </tr>
+            </thead>
+            <tbody id="students-tbody">
+              <tr><td colspan="5" class="loading-row">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Skills Tab -->
+      <div id="tab-skills" class="tab-pane">
+        <div class="tab-header">
+          <h3>Available Skills</h3>
+          <button class="btn-refresh" onclick="loadSkillsTable()">↻ Refresh</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th><th>Skill Name</th><th>Category</th>
+              </tr>
+            </thead>
+            <tbody id="skills-tbody">
+              <tr><td colspan="3" class="loading-row">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Swaps Tab -->
+      <div id="tab-swaps" class="tab-pane">
+        <div class="tab-header">
+          <h3>Pending Swap Requests</h3>
+          <button class="btn-refresh" onclick="loadSwapsTable()">↻ Refresh</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th><th>Sender</th><th>Receiver</th><th>Skill Offered</th><th>Skill Wanted</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="swaps-tbody">
+              <tr><td colspan="6" class="loading-row">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
