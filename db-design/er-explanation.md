@@ -1,0 +1,3 @@
+- One Student can offer multiple Skills (1:M)
+- One Skill can be offered by multiple Students (M:N via Skill_Offer)
+- Swap_Request connects two students and two skills
